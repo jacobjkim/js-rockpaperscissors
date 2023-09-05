@@ -4,26 +4,23 @@ function getComputerChoice(options) {
     return options[Math.floor(Math.random()* options.length)]
 }
 
-const playerSelection = prompt("Choose between: Rock, Paper, Scissors")
+const playerSelection = prompt("Choose between: Rock, Paper, Scissors");
 const computerSelection = getComputerChoice(options);
 
 function playRound (playerSelection, computerSelection){
-    switch (options) {
-        case playerSelection === computerSelection:
-            alert ("It's a tie. Let's go again!");
-            break;
-        case playerSelection === "Rock" && computerSelection === "Scissors":
-        case playerSelection === "Paper" && computerSelection === "Rock":
-        case playerSelection === "Scissors" && computerSelection === "Paper":
-            alert ("You Win!");
-            break;
-        case playerSelection === "Rock" && computerSelection === "Paper":
-        case playerSelection === "Paper" && computerSelection === "Scissors":
-        case playerSelection === "Scissors" && computerSelection === "Rock":
-            alert ("You Lose :(");
-            break;
-        }
+    if (playerSelection === computerSelection) {
+        return "It's a tie! Let's go again!";
+    }   else if (playerSelection === "Rock" && computerSelection === "Scissors" ||
+                 playerSelection === "Paper" && computerSelection === "Rock" ||
+                 playerSelection === "Scissors" && computerSelection === "Paper") {
+        return "You Win!";
+    }   else if (playerSelection === "Rock" && computerSelection === "Paper" ||
+        playerSelection === "Paper" && computerSelection === "Scissors" ||
+        playerSelection === "Scissors" && computerSelection === "Rock") {
+        return "You lose :(";
     }
+}
+
 
 console.log(computerSelection);
 console.log(playerSelection);
