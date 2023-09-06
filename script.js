@@ -4,17 +4,12 @@ function getComputerChoice() {
     return options[Math.floor(Math.random()* options.length)]
 }
 
-const playerSelection = getPlayerChoice();
-const computerSelection = getComputerChoice();
-
-
-const tie = `It\s a tie! You both picked ${playerSelection}! Let's go again!`
-const win = `You won! ${playerSelection} beats ${computerSelection}!`
-const lose = `You lost! ${computerSelection} beats ${playerSelection}`
-
 
 //This code plays one round and diplays the result of each game
 function playRound (playerSelection, computerSelection) {
+    const tie = `It\s a tie! You both picked ${playerSelection}! Let's go again!`
+    const win = `You won! ${playerSelection} beats ${computerSelection}!`
+    const lose = `You lost! ${computerSelection} beats ${playerSelection}`
     if (playerSelection === computerSelection) {
         return tie
     }   else if (playerSelection === "rock" && computerSelection === "scissors" ||
@@ -47,11 +42,14 @@ function game() {
     let playerScore = 0;
     let computerScore = 0;
     console.log ("welcome!")
-    for (let i = 0; i <5; i++) {
+    for (let i = 1; i <=5; i++) {
         const playerSelection = getPlayerChoice();
         const computerSelection = getComputerChoice();
         console.log(playRound(playerSelection,computerSelection));
         console.log("--------------------------------------");
+        const tie = `It\s a tie! You both picked ${playerSelection}! Let's go again!`
+        const win = `You won! ${playerSelection} beats ${computerSelection}!`
+        const lose = `You lost! ${computerSelection} beats ${playerSelection}`
         if (playRound(playerSelection,computerSelection) == win){
             playerScore++;
         } else if (playRound(playerSelection,computerSelection) == lose){
